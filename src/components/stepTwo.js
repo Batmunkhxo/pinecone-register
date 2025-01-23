@@ -1,17 +1,19 @@
 import { PineconeLogo } from "@/assets/svg/pinecone-logo";
 import { useState } from "react";
 
-export const StepOne = ({ setStep }) => {
-  const [firstName, setFirstName] = useState("");
+export const StepTwo = (props) => {
+    const {setStep}=props
+
+  const [emailName, setEmailName]=useState();
   const onContinue = () => {
-    if (firstName.length === 0) {
+    if (password.length === 0) {
       alert("stop it get some help");
       return;
     }
-    setStep(2)
+    setStep(3)
     console.log("working");
   };
-  const onFirstNameChange = (e) => setFirstName(e.target.value);
+  const onEmailChange = (e) => setEmailName(e.target.value);
 
   return (
     <div className="w-[480px] h-[655px] bg-white border rounded-x1 p-8 text-black">
@@ -21,37 +23,48 @@ export const StepOne = ({ setStep }) => {
         Please provide all current information accurately.
       </h3>
       <div className="flex flex-col mt-10">
-        <label htmlFor="firstName">
-          First name<span className="text-red-500">*</span>{" "}
+        <label htmlFor="eMail">
+          Email<span className="text-red-500">*</span>{" "}
         </label>
         <input
-          id="firstName"
+          id="email"
           className="w-full border py-3 px-2 rounded-xl "
-          placeholder="Placeholder"
-          type="text"
-          onChange={onFirstNameChange}
+          placeholder="Email"
+          type="email"
+          onChange={onEmailChange}
+        />  
+      </div>
+      <div className="flex flex-col mt-10">
+        <label htmlFor="Phonenumber">
+          Phone number<span className="text-red-500">*</span>{" "}
+        </label>
+        <input
+          id="phoneNumber"
+          className="w-full border py-3 px-2 rounded-xl "
+          placeholder="Phone number"
+          type="number"
         />
       </div>
       <div className="flex flex-col mt-10">
-        <label htmlFor="lastName">
-          Last name<span className="text-red-500">*</span>{" "}
+        <label htmlFor="password">
+          Password<span className="text-red-500">*</span>{" "}
         </label>
         <input
-          id="lastName"
+          id="passWord"
           className="w-full border py-3 px-2 rounded-xl "
-          placeholder="Placeholder"
-          type="text"
+          placeholder="Password"
+          type="password"
         />
       </div>
       <div className="flex flex-col mt-10">
-        <label htmlFor="firstName">
-          Username<span className="text-red-500">*</span>{" "}
+        <label htmlFor="Confirmpassword">
+          Confirm password<span className="text-red-500">*</span>{" "}
         </label>
         <input
-          id="userName"
+          id="ConfirmPassword"
           className="w-full border py-3 px-2 rounded-xl "
-          placeholder="Placeholder"
-          type="text"
+          placeholder="Confirm password"
+          type="password"
         />
       </div>
       <button
